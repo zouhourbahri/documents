@@ -10,6 +10,7 @@ server.on('request', (req,res)=> {
     res.writeHead(200);
     console.log(url.parse(req.url, true));
     let query = url.parse(req.url, true).query;
+    console.log(query);
     let name = query.name === undefined ? 'anonyme' : query.name;
     fs.readFile('index.html', 'utf-8', (err,data)=>{
             data = data.replace('{{name}}',name);
